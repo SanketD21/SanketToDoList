@@ -1,0 +1,20 @@
+<div>
+  <h1 style="font-size: 20px;">Add Your New Todo For Today for Getting started</h1>
+  <form (ngSubmit)="onSubmit()" #data=ngForm>
+    <div class="mb-3" style="font-size: 30px; font-family: cursive;">
+        <label for="title" class="form-label" style="font-size: 20px;">To-Do Title</label>
+        <input type="text" class="form-control" [(ngModel)] = "title" id="title" name="title" #tt=ngModel
+        placeholder="Add a title for Todo" style="width: 400px; height: 40px; border-radius: 20px;">
+        <div *ngIf='tt.invalid'>
+          <div *ngIf='tt.errors.required'>Name cannot be blank</div> 
+          <div *ngIf='tt.minlength > 5'> Name cannot be less than 5 characters</div> 
+      </div>
+    </div>
+    <div class="mb-3" style="font-size: 30px; font-family: cursive;">
+      <label for="description" class="form-label" style="font-size: 20px;">To-Do Description</label>
+      <input type="text" class="form-control" [(ngModel)]= "desc" id="desc" name="desc" required
+      placeholder="Add a description for Todo" style="width: 700px; height: 40px; border-radius: 20px;">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]='data.invalid'>Add to my List</button>
+  </form>
+</div>

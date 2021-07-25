@@ -1,0 +1,16 @@
+<div class="my-3">
+  <h3 [ngClass]="{ 'strike': !todo.active }" style="font-family: cursive;">{{ todo.title }}</h3>
+  <h6  [ngClass]="{ 'strike': !todo.active }" style="font-family: cursive;">{{ todo.desc }}</h6>
+  <div class="mb-3 form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="todo{{i}}"
+      (click)="onCheckboxClick(todo)"
+      [checked]="!todo.active"
+    />
+    <label class="form-check-label" for="todo{{i}}">Task Is Completed</label>
+  </div>
+  <button class="btn btn-sm btn-danger" (click)="onClick(todo)">Remove from list</button>
+  <hr style="color: blue" />
+</div>
